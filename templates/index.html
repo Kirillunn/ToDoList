@@ -1,0 +1,55 @@
+{% include "header.html" %}
+<body class="d-flex flex-column min-vh-100">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-2">
+                <p>All lists</p>
+                <div class="d-flex flex-column align-items-stretch bg-body-tertiary" style="width: 200px;">
+                    <div class="list-group list-group-flush border-bottom scrollarea">
+                        {% for list in all_lists %}
+                        <a href="{{ url_for('list', list_id=list.id) }}" class="list-group-item list-group-item-action py-3 lh-sm">
+                          <div class="d-flex w-100 align-items-center justify-content-between">
+                            <strong class="mb-1">{{ list.title }}</strong>
+                            <small class="text-body-secondary">{{ list.date }}</small>
+                          </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-10">
+                 <form method="POST">
+                    {{ form.csrf_token }}
+                    <div class="mb-3">
+                        {{ form.title.label(class="form-label") }}
+                        {{ form.title(class="form-control", id="title") }}
+                        {% for error in form.title.errors %}
+                            <span style="color: red;">{{ error }}</span><br>
+                        {% endfor %}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.date.label(class="form-label") }}
+                        {{ form.date(class="form-control", id="date") }}
+                        {% for error in form.date.errors %}
+                            <span style="color: red;">{{ error }}</span><br>
+                        {% endfor %}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add New List</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+{% include "footer.html" %}
+
+
+
+
+
+
+
+
+
+

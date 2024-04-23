@@ -1,0 +1,19 @@
+ToDo List
+1. Interface:
+a) Header: Logo + Log In / Log Out / Register
+b) Sidebar: all of the lists created by the user - when user presses the button, list opens.
+c) List window
+- Title of the list + date
+- Input line (for task) + Submit button (could we do without button just pressing Enter?)
+- List of tasks checkmarks + we need functionality which crosses the taks when user presses checkmark
+- Delete button for each task
+- Tag button - for tagging each task with different colors
+d) Footer - name, year, copyright sign
+
+2. Functionality
+a) Registration, LogIn and LogOut
+b) Database:
+ - User table: user id, username, email, hashed password
+ - Lists table: list id, user id (foreign key), title, date
+ - Tasks table: task id, list id (foreign key), description, status
+
